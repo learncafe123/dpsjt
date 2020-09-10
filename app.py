@@ -17,6 +17,8 @@ if __name__ == '__main__':
 		persistence.matter('db/tables.sql')
 		if len(sys.argv) > 2 and sys.argv[2].lower() == 'populate':
 			persistence.matter('db/inserts.sql')
+	elif len(sys.argv) == 2 and sys.argv[1].lower() == 'populate':
+		persistence.matter('db/inserts.sql')
 	elif len(sys.argv) > 2 and sys.argv[1].lower() == 'exportdb':
 		persistence.export(sys.argv[2])
 	else:

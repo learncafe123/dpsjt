@@ -41,8 +41,11 @@ def update(query):
 def delete(query):
 	with sqlite3.connect(DATABASE_URI) as connection:
 		cursor = connection.cursor()
-		cursor.execute(query)
-		return cursor.rowcount
+		try:
+			cursor.execute(query)
+			return cursor.rowcount
+		except:
+			return False
 
 # Exportar tabelas a partir de um arquivo DB
 def export(filename):
@@ -53,7 +56,7 @@ def export(filename):
 
 # Importar tabelas a partir de um arquivo SQL
 def matter(filename):
-	with open(filename, 'r') as file:
+	with open(filename, 'r', encoding='utf-8') as file:
 		connection = sqlite3.connect(DATABASE_URI)
 		cursor = connection.cursor()
 		cursor.executescript(file.read())

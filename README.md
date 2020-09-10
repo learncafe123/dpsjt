@@ -17,6 +17,7 @@ dpsjt/
 │   └── update.log
 ├── models/
 │   ├── __init__.py
+│   ├── client.py
 │   ├── product.py
 │   ├── provider.py
 │   └── user.py
@@ -37,11 +38,12 @@ dpsjt/
 ├── templates/
 │   ├── base.html
 │   ├── base_system.html
+│   ├── clients.html
 │   ├── index.html
 │   ├── login.html
 │   ├── products.html
 │   ├── providers.html
-│   └── system.html
+│   ├── system.html
 │   └── users.html
 ├── app.py
 ├── config.py
@@ -62,12 +64,12 @@ Feito o procedimento de instalação de dependências, basta acessar a pasta do 
 
 Primeira inicialização do software com a base de dados vazia e usuário *default* (dpsjt):
 ```sh
-$ python3 dpsjt.py initdb
+$ python3 app.py initdb
 ```
 
-Primeira inicialização do software com a base de dados populada com alguns fornecedores e produtos (simbólicos) para fins de teste:
+Primeira inicialização do software com a base de dados populada com alguns clientes, fornecedores e produtos (simbólicos) para fins de teste:
 ```sh
-$ python3 dpsjt.py initdb populate
+$ python3 app.py initdb populate
 ```
 
 Por padrão, o modo *debug* está ativado, caso deseje desativar, basta alterar a *flag* DEBUG no arquivo `config.py`.
